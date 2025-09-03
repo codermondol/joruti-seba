@@ -64,6 +64,11 @@ document.getElementById('btn-call-action1').addEventListener('click', function (
         </div>
     `;
 
-    historyContainer.prepend(historyItem);
+    historyContainer.append(historyItem);
+
+    // Clear history function
+    document.getElementById('clear-history').addEventListener('click', function(){
+        document.getElementById('call-history').innerHTML = '';
+    })
 })
 
