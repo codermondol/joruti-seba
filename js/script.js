@@ -32,7 +32,7 @@ heartClicked('btn-heart-item9');
 function callButtonAction(btn1, nameId, numberId){
     document.getElementById(btn1).addEventListener('click', function () {
         const callButton = document.getElementById(btn1);
-        let coins = parseInt(document.getElementById('coins').innerText); // use let
+        let coins = parseInt(document.getElementById('coins').innerText); 
 
         if (coins < 20) {
             alert('Not enough coins to make a call!');
@@ -84,3 +84,36 @@ callButtonAction('btn-call-action9', 'service-name9', 'service-number9');
     document.getElementById('clear-history').addEventListener('click', function(){
         document.getElementById('call-history').innerHTML = '';
     })
+
+
+// Copy function 
+
+
+
+
+function copyBtnAction(btnId, numberId){
+    document.getElementById(btnId).addEventListener('click', function () {
+        const hotline = document.getElementById(numberId).innerText;
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(hotline).then(() => {
+        // Show alert
+        alert('Hotline number ' + hotline + ' copied to clipboard!');
+
+        // Increase copy count
+        let countElem = document.getElementById('copy-number');
+        let current = parseInt(countElem.innerText);
+        countElem.innerText = current + 1;
+        });
+    });
+}
+
+copyBtnAction('btn-copy1', 'service-number1')
+copyBtnAction('btn-copy2', 'service-number2')
+copyBtnAction('btn-copy3', 'service-number3')
+copyBtnAction('btn-copy4', 'service-number4')
+copyBtnAction('btn-copy5', 'service-number5')
+copyBtnAction('btn-copy6', 'service-number6')
+copyBtnAction('btn-copy7', 'service-number7')
+copyBtnAction('btn-copy8', 'service-number8')
+copyBtnAction('btn-copy9', 'service-number9')
